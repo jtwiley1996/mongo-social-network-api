@@ -8,8 +8,8 @@ const cwd = process.cwd();
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const activity = cwd.includes('social-network-api')
-  ? cwd.split('social-network-api')[1]
+const activity = cwd.includes('mongo-social-network-api')
+  ? cwd.split('mongo-social-network-api')[1]
   : cwd;
 
 app.use(express.urlencoded({ extended: true }));
