@@ -1,40 +1,33 @@
 const express = require('express');
 const db = require('./config/connection');
-const routes = require('./routes');
+const apiRoutes = require('./routes/apis');
 const cfonts = require('cfonts');
-
-const cwd = process.cwd();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const activity = cwd.includes('mongo-social-network-api')
-  ? cwd.split('mongo-social-network-api')[1]
-  : cwd;
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes);
+app.use(apiRoutes);
 
-
-//Function that shows the title of the app
+// Generate and display ASCII art text
 cfonts.say('Social Network API', {
-	font: 'block',              // define the font face
-	align: 'center',              // define text alignment
-	colors: ['white'],         // define all colors
-	background: 'transparent',  // define the background color, you can also use `backgroundColor` here as key
-	letterSpacing: 1,           // define letter spacing
-	lineHeight: 1,              // define the line height
-	space: true,                // define if the output text should have empty lines on top and on the bottom
-	maxLength: '0',             // define how many character can be on one line
-	gradient: false,            // define your two gradient colors
-	independentGradient: false, // define if you want to recalculate the gradient for each new line
-	transitionGradient: false,  // define if this is a transition between colors directly
-	env: 'node'                 // define the environment cfonts is being executed in
+  font: 'block',             
+  align: 'center',             
+  colors: ['white'],        
+  background: 'transparent',  
+  letterSpacing: 1,          
+  lineHeight: 1,             
+  space: true,               
+  maxLength: '0',            
+  gradient: false,           
+  independentGradient: false, 
+  transitionGradient: false,  
+  env: 'node'                 
 });
 
 db.once('open', () => {
   app.listen(PORT, () => {
-    console.log(`API server for ${activity} running on port ${PORT}!`);
+    console.log(`API server running on port ${PORT}!`);
   });
 });
