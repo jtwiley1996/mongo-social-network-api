@@ -15,9 +15,17 @@ My Social Network API is a project designed to explore network API workings usin
 
 You can interact with this app in two ways:
 
-1. To view a video demonstration, visit: [Demo Video](https://drive.google.com/file/d/1EN5D0AKnNgdLaj7cyflOsOnx9xGu-g6P/view)
+1. To view a video demonstration, visit: [Demo Video](https://watch.screencastify.com/v/AhCLVSqC4pZQt8nwdhTW)
 2. To run the app locally, ensure you have Node.js installed. Then clone the repository and follow the steps below:
 
 ```bash
 npm i
 npm start
+```
+
+
+After entering the two commands, you should see something like this:
+
+![Demo Image](./images/Image-1.png)
+
+Afterwards, you are free to test your app on Insomnia!
